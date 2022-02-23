@@ -10,6 +10,7 @@ class Karen
 			void info(void);
 			void warning(void);
 			void error(void);
+			void exception(void);
 	public:
 			Karen();
 			std::string stat[4];

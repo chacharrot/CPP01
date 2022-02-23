@@ -28,11 +28,16 @@ void Karen::error(void)
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
+void Karen::exception(void)
+{
+	std::cout << "I'm going to post it on SNS" << std::endl;
+}
+
 void Karen::complain(std::string level)
 {
 	size_t i = 0;
 
-	void (Karen::*fptr[4])(void) = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
+	void (Karen::*fptr[5])(void) = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error, &Karen::exception};
 	while (i < 4 && level != this->stat[i])
 		i++;
 	(this->*fptr[i])();
