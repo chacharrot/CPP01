@@ -45,10 +45,13 @@ int main(int argc, char **argv)
 	}
 	while(std::getline(infile, readBuff)) 
 	{
-		while ((findPlace = readBuff.find(finds)) != std::string::npos) 
+		findPlace = readBuff.find(finds);
+		while (findPlace != std::string::npos) 
 		{
 			readBuff.erase(findPlace, finds.length());
 			readBuff.insert(findPlace, replaces);
+			findPlace = findPlace + replaces.length();
+			findPlace = readBuff.find(finds, findPlace);
 		}
 		outfile << readBuff;
 		if (!infile.eof())
